@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+
+
+<head>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lieblingsorte der Webmapper:innen</title>
+</head>
+
+<body>
+    <header>
+        <!--https://pixabay.com/de/photos/stadt-wellington-natur-landschaft-4861189/-->
+        <img src="images/header.jpg" alt="Wellington Häuser am Wasser">
+        <!--https://pixabay.com/de/photos/flagge-neuseeland-wind-2395523/-->
+        <a href="https://github.com/cs4151"><img src="images/user.jpg" alt="Neuseelandflagge im Wind"></a>
+
+    </header>
+    <main>
+        <h1>Lieblingsorte der Webmapper:innen</h1>
+        <h2>Wellington</h2>
+        <p><strong>Wellington</strong>, <em>offizielle Bezeichnung: Wellington City</em> (Maori Te Whanganui-a-Tara, wobei damit der Wellington Harbour und seine Umgebung gemeint ist),
+        <p> ist die Hauptstadt von Neuseeland und stellt zusammen mit den angrenzenden Städten Lower Hutt, <strong><em>Upper Hutt und Porirua</em></strong> nach Auckland den zweitgrößten Ballungsraum des Landes dar.
+        <p>Die Stadt Wellington selbst hat rund 213.000 Einwohner.</p>
+        <a href="https://de.wikipedia.org/wiki/Wellington">Quelle: Wikipedia</a>
+        <figure>
+            <img src="images/attraction.jpg" alt="Rote Standseilbahn oberhalb einer Stadt am Wasser">
+        </figure>
+        <!-- Bild von https://de.wikipedia.org/wiki/Wellington -->
+        <figcaption>
+            <figure>Cable Car Wellington mit Blick auf die Stadt im Hintergrund (Quelle: <a href="https://pixabay.com/de/photos/neuseeland-wellington-hauptstadt-4875972/"> Pixabay</a>)</figure>
+        </figcaption>
+
+
+        <h3>Übersichtskarte</h3>
+        <div id="map" style="width:900px;height:600px;border:1px solid silver"></div>
+
+        <h3>Links</h3>
+        <ul>
+            <li><a href="https://www.newzealand.com/de/feature/wellington-attractions/">Sehenswürdigkeiten in Wellington </a></li>
+            <li> <a href="https://www.viator.com/de-DE/Wellington-tours/Day-Trips-and-Excursions/d399-g5?m=27919&supag=1236951646950779&supsc=dat-2329109225773990&supai=77309611310471&supdv=c&supnt=nt:o&suplp=146440&supli=&supti=dat-2329109225773990&tsem=true&supci=dat-2329109225773990&supkw=wellington&msclkid=1d3bffff0e5d19468a459836d4d95b43">Wellington Tagesausflüge </a></li>
+            <li> <a href="https://www.getyourguide.de/-l943/?cmp=bing&cmp=bing&ad_id=78134249582817&adgroup_id=1250145369337975&bid_match_type=be&campaign_id=710112644&device=c&feed_item_id=&keyword=wellington%20aktivit%C3%A4ten&loc_interest_ms=180743&loc_physical_ms=146440&match_type=e&msclkid=9829ba66b811118d1159ddaf6491d302&network=o&partner_id=CD951&target_id=kwd-78134452511800&utm_adgroup=lc%3D943%3Awellington%7Cfn%3Df3%7Cci%3D937%3Athings%20to%20do&utm_campaign=dc%3D7%3Anz%7Clc%3D943%3Awellington%7Cct%3Dcore%7Cln%3D39%3Ade%7Ctc%3Dall&utm_keyword=wellington%20aktivit%C3%A4ten&utm_medium=paid_search&utm_query=wellington%20aktivit%C3%A4ten&utm_source=bing">Aktivitäten in Wellington </a></li>
+        </ul>
+    </main>
+
+    <footer>
+        <nav>
+            <a href="https://webmapping.github.io/nz/">vorhergehende Etappe</a>
+            <a href="https://cs4151.github.io/nz/">diese Etappe</a>
+            <a href="https://pauly0602.github.io/nz/">nächste Etappe</a>
+        </nav>
+    </footer>
+
+    <script>
+        var map = L.map('map').setView([-41.2875, 174.776111], 12);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        var marker = L.marker([-41.2875, 174.776111]).addTo(map);
+        marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+    </script>
+</body>
+
+
+</html>
