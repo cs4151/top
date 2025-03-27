@@ -238,6 +238,12 @@ console.log(marker)
         map.setView([STOPS[i].lat, STOPS[i].lng], STOPS[i].zoom);
         marker.openPopup()
     }
+
+    //Pulldownmenü befüllen
+    let option = document.createElement("option");
+    option.value = STOPS[i].user;
+    option.text = STOPS[i].title;
+    document.querySelector("#pulldown select").appendChild(option);
 }
 
 
