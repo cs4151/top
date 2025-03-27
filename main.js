@@ -2,9 +2,7 @@
 Skript für Lieblingsorte
 
 */
-let lat = 47.66336;
-let lng = 9.175;
-let zoom = 19;
+
 
 let stop = {
 
@@ -13,30 +11,30 @@ let stop = {
     user: "cs4151",
     lat: 47.6633,
     lng: 9.175,
-    zoom: 19,
+    zoom: 14,
 };
 
 
 // Karte initialisieren
 
-let map = L.map('map').setView([47.66336, 9.17598], 14);
+let map = L.map('map').setView([stop.lat, stop.lng], stop.zoom);
 
 
 // Hintergrundkarte definieren
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: zoom,
+    maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
 // Marker zeichnen
-let marker = L.marker([lat, lng]).addTo(map);
+let marker = L.marker([stop.lat, stop.lng]).addTo(map);
 
 // Popup definieren und öffnen
 
-marker.bindPopup(`<h2>Konstanz</h2>
+marker.bindPopup(`<h2>${stop.title}</h2>
     <ul>
-    <li>Geogr. Breite: ${lat.toFixed(5)}°</li>
-    <li>Geogr. Länge: ${lng.toFixed(5)}°</li>
+    <li>Geogr. Breite: ${stop.lat.toFixed(5)}°</li>
+    <li>Geogr. Länge: ${stop.lng.toFixed(5)}°</li>
     </ul>
     `).openPopup();
 
