@@ -14,6 +14,7 @@ let stop = {
     zoom: 14,
 };
 
+
 const STOPS = [
     {
         lat: -34.423889,
@@ -125,7 +126,7 @@ const STOPS = [
         user: "lizzie2911",
         lat: -44.7,
         lng:169.15,
-        zoom: zoom,
+        zoom: 13,
     },
     {
       nr: 17,
