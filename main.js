@@ -43,7 +43,7 @@ const STOPS = [
      {  
         nr: 4,
         title: "Cormandel Peninsula",
-        usr:"Gregorysprenger2001",
+        userr:"Gregorysprenger2001",
         lat: -37.882778,
         lng: 175.636667,
         zoom: 11,
@@ -84,7 +84,7 @@ const STOPS = [
         nr: 9,
         title: "Wellington",
         user: "cs4151",
-        lat: "-41.2875",
+        lat: -41.2875,
         lng: 174.776111,
         zoom: 12,
     },
@@ -214,23 +214,28 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
+
 //loop über Etappen
-for (let i=0; i<STOPS.length; i++) {
-    console.log(i, STOPS[i].title);
+for (let i=0; i<STOPS[i].length; i++) 
+    {;
+   
+
     // Marker zeichnen
 let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
 
+// Popup definieren und öffnen
+marker.bindPopup(`
+    <h2>${STOPS[i].title}</h2>
+    <ul>
+      <li>Geogr. Breite: ${STOPS[i].lat.toFixed(5)}°</li>
+      <li>Geogr. Länge: ${STOPS[i].lng.toFixed(5)}°</li>
+    </ul>
+    `).openPopup();
 }
 
 
-// Popup definieren und öffnen
 
-marker.bindPopup(`
-    <h2>${stop.title}</h2>
-    <ul>
-      <li>Geogr. Breite: ${stop.lat.toFixed(5)}°</li>
-      <li>Geogr. Länge: ${stop.lng.toFixed(5)}°</li>
-    </ul>
-    `).openPopup();
+
+
 
     
