@@ -243,6 +243,10 @@ console.log(marker)
     let option = document.createElement("option");
     option.value = STOPS[i].user;
     option.text = STOPS[i].title;
+    if (STOPS[i].user == "cs4151") {
+        option.selected =true;
+    }
+    
     document.querySelector("#pulldown select").appendChild(option);
 }
 
