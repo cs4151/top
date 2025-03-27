@@ -28,3 +28,15 @@ marker.bindPopup(`<h2>Konstanz</h2>
     <li>Geogr. Länge: ${lng.toFixed(5)}°</li>
     </ul>
     `).openPopup();
+
+    let course = {
+
+        title: "Webmapping",
+        semester: "25S",
+        stunden: "3",
+        typ: "VU"
+    };
+    console.log("title", course.title);
+    console.log("semester", course.semester);
+    console.log("stunden",course.stunden);
+    console.log("typ", course.typ);
