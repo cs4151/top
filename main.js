@@ -21,4 +21,4 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 let marker = L.marker([lat, lng]).addTo(map);
 
 // Popup definieren und öffnen
-marker.bindPopup("<b>Hallo Konstanz!</b><br>I am a popup.").openPopup();
+marker.bindPopup(`<b>Hallo Konstanz!</b><br>I am a popup.`).openPopup();
