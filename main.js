@@ -170,7 +170,7 @@ const STOPS = [
     },
     {
         nr: 24,
-        titel: "Moeraki Boulders",
+        title: "Moeraki Boulders",
         user: "StephanPumpernik",
         lat: -45.345275,
         lng: 170.826061,
@@ -202,6 +202,11 @@ const STOPS = [
     },
     
     ];
+
+for (let i=0; i<STOPS.length; i++) {
+    console.log(STOPS[i]);
+
+}
 
 // Karte initialisieren
 
