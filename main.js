@@ -3,8 +3,19 @@ Skript für Lieblingsorte
 
 */
 let lat = 47.66336;
-let lng = 9.17598;
+let lng = 9.175;
 let zoom = 19;
+
+let stop = {
+
+    nr: 9,
+    title: "Konstanz",
+    user: "cs4151",
+    lat: 47.6633,
+    lng: 9.175,
+    zoom: 19,
+};
+
 
 // Karte initialisieren
 
@@ -29,14 +40,4 @@ marker.bindPopup(`<h2>Konstanz</h2>
     </ul>
     `).openPopup();
 
-    let course = {
-
-        title: "Webmapping",
-        semester: "25S",
-        stunden: "3",
-        typ: "VU"
-    };
-    console.log("title", course.title);
-    console.log("semester", course.semester);
-    console.log("stunden",course.stunden);
-    console.log("typ", course.typ);
+    
