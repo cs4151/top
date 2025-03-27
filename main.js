@@ -28,9 +28,9 @@ const STOPS = [
         nr: 2,
         title: "Bay of Islands",
         user: "Ellinnaa",
-        lat:-35.183333,
-        lng:174.166667,
-        zoom:11,
+        lat: -35.183333,
+        lng: 174.166667,
+        zoom: 11,
     },
     {
         nr: 3,
@@ -40,10 +40,10 @@ const STOPS = [
         lng: 174.8,
         zoom: 13,
     },
-     {  
+    {
         nr: 4,
         title: "Cormandel Peninsula",
-        userr:"Gregorysprenger2001",
+        userr: "Gregorysprenger2001",
         lat: -37.882778,
         lng: 175.636667,
         zoom: 11,
@@ -89,14 +89,14 @@ const STOPS = [
         zoom: 12,
     },
     {
-      title: "Picton",
-      user: "pauly0602",
-      nr: 10,
-      lat: -41.29,
-      lng: 174.0,
-      zoom: 11,
-      },
-    {  
+        title: "Picton",
+        user: "pauly0602",
+        nr: 10,
+        lat: -41.29,
+        lng: 174.0,
+        zoom: 11,
+    },
+    {
         nr: 11,
         title: "Nelson",
         user: "lujehle",
@@ -125,16 +125,16 @@ const STOPS = [
         title: "Wanaka",
         user: "lizzie2911",
         lat: -44.7,
-        lng:169.15,
+        lng: 169.15,
         zoom: 13,
     },
     {
-      nr: 17,
-      title: "Queenstown",
-      user: "Kathleenuniibk",
-      lat: -45.031389,
-      lng: 168.660833,
-      zoom:14,
+        nr: 17,
+        title: "Queenstown",
+        user: "Kathleenuniibk",
+        lat: -45.031389,
+        lng: 168.660833,
+        zoom: 14,
     },
     {
         nr: 18,
@@ -185,7 +185,7 @@ const STOPS = [
         user: "PriPh625",
     },
     {
-    title: "Mount Cook",
+        title: "Mount Cook",
         nr: 26,
         user: "Basti-10",
         zoom: 13,
@@ -200,13 +200,13 @@ const STOPS = [
         lng: 173.682222,
         zoom: 11
     },
-    
-    ];
+
+];
 
 
 // Karte initialisieren
 
-let map = L.map('map').setView([stop.lat, stop.lng], stop.zoom);
+let map = L.map('map');
 
 
 // Hintergrundkarte definieren
@@ -214,23 +214,30 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
-
+console.log(STOPS)
 //loop über Etappen
-for (let i=0; i<STOPS[i].length; i++) 
-    {;
-   
+for (let i = 0; i < STOPS.length; i++) {
+    
+console.log(i)
 
     // Marker zeichnen
-let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
-
-// Popup definieren und öffnen
-marker.bindPopup(`
+    let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
+console.log(marker)
+    // Popup definieren und öffnen 
+    marker.bindPopup(`
     <h2>${STOPS[i].title}</h2>
     <ul>
       <li>Geogr. Breite: ${STOPS[i].lat.toFixed(5)}°</li>
       <li>Geogr. Länge: ${STOPS[i].lng.toFixed(5)}°</li>
     </ul>
-    `).openPopup();
+    `)
+
+    // auf eigene Etappe blicken und Ppup öffnen
+    if (STOPS[i].user == "cs4151") {
+        console.log("meine Etappe :-)")
+        map.setView([STOPS[i].lat, STOPS[i].lng], STOPS[i].zoom);
+        marker.openPopup()
+    }
 }
 
 
@@ -238,4 +245,6 @@ marker.bindPopup(`
 
 
 
-    
+
+
+
