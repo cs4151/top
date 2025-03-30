@@ -55,6 +55,12 @@ article figure>img {
     border: 1px solid silver;
     margin: auto;
 }
+/*Pulldown anpassen */
+#pulldown {
+    position: relative;
+    left: 5%;
+    top: 1em;
+}
 
 footer {
     text-align: center;
