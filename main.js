@@ -81,12 +81,13 @@ const STOPS = [
         zoom: 11,
     },
     {
+
         nr: 9,
-        title: "Wellington",
+        title: "Konstanz",
         user: "cs4151",
-        lat: -41.2875,
-        lng: 174.776111,
-        zoom: 12,
+        lat: 47.6633,
+        lng: 9.175,
+        zoom: 14,
     },
     {
         title: "Picton",
