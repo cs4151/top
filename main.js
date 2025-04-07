@@ -230,16 +230,16 @@ let overlays = {
 
 //Layercontorl definieren
 L.control.layers({
-    "OpenStreetMap": L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+    "OpenStreetMap": L.tileLayer('OpenStreetMap/{z}/{x}/{y}.png',
         {
             maxZoom: 19,
-            attribution: 'Hintergrundkarte: <a href ="OpenStreetMap.Mapnik</a>'
+            attribution: 'contributors: <a href ="OpenStreetMap.Mapnik</a>'
         }).addTo(map),
     "OpenTopoMap": L.tileLayer.provider('OpenTopoMap'),
     "EsriWorldImagery": L.tileLayer.provider('Esri.WorldImagery'),
 }, { 
     "Marker der Etappen": overlays.marker,
-}).addTo(map) 
+}).addTo(map)
 
 //loop über Etappen
 for (let i = 0; i < STOPS.length; i++) {
@@ -249,6 +249,7 @@ console.log(i)
     // Marker zeichnen
     let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
 console.log(marker)
+marker.addTo(overlays.marker);
     // Popup definieren und öffnen 
     marker.bindPopup(`
     <h2>${STOPS[i].title}</h2>
