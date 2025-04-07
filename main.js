@@ -223,6 +223,24 @@ L.control.scale({
     imperial: false,
 }).addTo(map); 
 
+//overlays definieren
+let overlays = {
+    marker: L.featureGroup().addTo(map),
+}
+
+//Layercontorl definieren
+L.control.layers({
+    "OpenStreetMap": L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+            maxZoom: 19,
+            attribution: 'Hintergrundkarte: <a href ="OpenStreetMap.Mapnik</a>'
+        }).addTo(map),
+    "OpenTopoMap": L.tileLayer.provider('OpenTopoMap'),
+    "EsriWorldImagery": L.tileLayer.provider('Esri.WorldImagery'),
+}, { 
+    "Marker der Etappen": overlays.marker,
+}).addTo(map) 
+
 //loop über Etappen
 for (let i = 0; i < STOPS.length; i++) {
     
