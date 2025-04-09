@@ -80,22 +80,22 @@ const STOPS = [
         lng: -124.636604,
         zoom: 13,
     },
-{
-
-    nr: 9,
-    title: "Konstanz",
-    user: "cs4151",
-    lat: 47.6633,
-    lng: 9.175,
-    zoom: 14,
-},
     {
-       title: "Azoren",
-  user: "pauly0602",
-  nr: 10,
-  lat: 37.77,
-  lng: -25.46,
-  zoom: 11,
+
+        nr: 9,
+        title: "Konstanz",
+        user: "cs4151",
+        lat: 47.6633,
+        lng: 9.175,
+        zoom: 14,
+    },
+    {
+        title: "Azoren",
+        user: "pauly0602",
+        nr: 10,
+        lat: 37.77,
+        lng: -25.46,
+        zoom: 11,
     },
     {
         nr: 11,
@@ -138,12 +138,13 @@ const STOPS = [
         zoom: 13,
     },
 
-    {nr: 18,
-    title: "Volksparkstadion",
-    user: "Pruje839",
-    lat: 53.587153,
-    lng: 9.898643,
-    zoom: 12,
+    {
+        nr: 18,
+        title: "Volksparkstadion",
+        user: "Pruje839",
+        lat: 53.587153,
+        lng: 9.898643,
+        zoom: 12,
     },
     {
         nr: 20,
@@ -154,28 +155,28 @@ const STOPS = [
         zoom: 11,
     },
     {
-nr: 21,
-title: "Tafraoute",
-user: "moplatt",
-lat: 29.72222,
-lng: -8.97194,
-zoom: 11,
+        nr: 21,
+        title: "Tafraoute",
+        user: "moplatt",
+        lat: 29.72222,
+        lng: -8.97194,
+        zoom: 11,
     },
-{
-    nr: 23,
-    title: "Habicht",
-    user: "fritzcrone",
-    lat: 47.043611,
-    lng: 11.289444,
-    zoom: 15
-},
+    {
+        nr: 23,
+        title: "Habicht",
+        user: "fritzcrone",
+        lat: 47.043611,
+        lng: 11.289444,
+        zoom: 15
+    },
     {
         nr: 24,
-    title: "Sevilla",
-    user: "StephanPumpernik",
-    lat: 37.3925,
-    lng: -5.9925,
-    zoom: 13,
+        title: "Sevilla",
+        user: "StephanPumpernik",
+        lat: 37.3925,
+        lng: -5.9925,
+        zoom: 13,
     },
     {
         lat: 49.577037,
@@ -194,13 +195,13 @@ zoom: 11,
         lng: 8.08,
     },
     {
-        
-nr: 29,
-    title: 'Utrecht',
-    user: 'jessimeteo',
-    lat: 52.088889,
-    lng: 5.115556,
-    zoom: 13
+
+        nr: 29,
+        title: 'Utrecht',
+        user: 'jessimeteo',
+        lat: 52.088889,
+        lng: 5.115556,
+        zoom: 13
     },
 ];
 
@@ -214,14 +215,14 @@ let map = L.map('map');
 // Hintergrundkarte definieren
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
-    attribution:'Hintergrundkarte'&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 console.log(STOPS)
 
 // Maßstab
 L.control.scale({
     imperial: false,
-}).addTo(map); 
+}).addTo(map);
 
 //overlays definieren
 let overlays = {
@@ -237,19 +238,19 @@ L.control.layers({
         }).addTo(map),
     "OpenTopoMap": L.tileLayer.provider('OpenTopoMap'),
     "EsriWorldImagery": L.tileLayer.provider('Esri.WorldImagery'),
-}, { 
+}, {
     "Marker der Etappen": overlays.marker,
 }).addTo(map)
 
 //loop über Etappen
 for (let i = 0; i < STOPS.length; i++) {
-    
-console.log(i)
+
+    console.log(i)
 
     // Marker zeichnen
     let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
-console.log(marker)
-marker.addTo(overlays.marker);
+    console.log(marker)
+    marker.addTo(overlays.marker);
     // Popup definieren und öffnen 
     marker.bindPopup(`
     <h2>${STOPS[i].title}</h2>
@@ -271,17 +272,17 @@ marker.addTo(overlays.marker);
     option.value = STOPS[i].user;
     option.text = STOPS[i].title;
     if (STOPS[i].user == "cs4151") {
-        option.selected =true;
+        option.selected = true;
     }
 
     document.querySelector("#pulldown select").appendChild(option);
 }
 
 // auf Änderungen beim Pulldown reagieren
-document.querySelector("#pulldown select").onchange = function(evt) {
+document.querySelector("#pulldown select").onchange = function (evt) {
     let url = `https://${evt.target.value}.github.io/top`;
-   // console.log(url);
-  //  console.log(evt.target.value);
+    // console.log(url);
+    //  console.log(evt.target.value);
     window.location = url;
 }
 
