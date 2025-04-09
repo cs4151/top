@@ -212,12 +212,7 @@ const STOPS = [
 let map = L.map('map');
 
 
-// Hintergrundkarte definieren
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-console.log(STOPS)
+
 
 // Maßstab
 L.control.scale({
@@ -231,11 +226,7 @@ let overlays = {
 
 //Layercontorl definieren
 L.control.layers({
-    "OpenStreetMap": L.tileLayer('OpenStreetMap/{z}/{x}/{y}.png',
-        {
-            maxZoom: 19,
-            attribution: 'contributors: <a href ="OpenStreetMap.Mapnik</a>'
-        }).addTo(map),
+    "OpenStreetMap.Mapnik": L.tileLayer.provider('OpenStreetMap.Mapnik').addTo(map),
     "OpenTopoMap": L.tileLayer.provider('OpenTopoMap'),
     "EsriWorldImagery": L.tileLayer.provider('Esri.WorldImagery'),
 }, {
